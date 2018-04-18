@@ -9,6 +9,10 @@ public class Book {
     public Integer price;
     public String author;
 
+    public Book() {
+
+    }
+
     public Book(Integer id, String title, Integer price, String author){
         this.id = id;
         this.title = title;
@@ -43,7 +47,7 @@ public class Book {
         books.add(book);
     }
 
-    public static boolean remove(){
+    public static boolean remove(Book book){
         return books.remove(book);
     }
 
