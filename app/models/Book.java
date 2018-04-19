@@ -9,14 +9,44 @@ public class Book {
     public Integer price;
     public String author;
 
-    public Book() {
-
-    }
+    public Book() {}
 
     public Book(Integer id, String title, Integer price, String author){
         this.id = id;
         this.title = title;
         this.price = price;
+        this.author = author;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public int getPrice() {
+        return this.price;
+    }
+
+    public String getAuthor() {
+        return this.author;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setAuthor(String author) {
         this.author = author;
     }
 
