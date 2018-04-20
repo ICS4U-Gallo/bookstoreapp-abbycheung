@@ -45,16 +45,39 @@ public class BooksController extends Controller {
     }
 
     public Result update(){
-        return TODO;
-    }
+        Book book = formFactory.form(Book.class).bindFromRequest().get();
 
-    public Result destroy(Integer id) {
-        return TODO;
+        Book oldBook = Book.findById(book.id);
+        if (oldBook == null) {
+            return notFound("Book not found");
+        }
+
+        oldBook.title = book.title;
+        oldBook.author = book.author;
+        oldBook.price = book.price;
+
+        return redirect(routes.BooksController.index());
     }
 
     //for book details
     public Result show(Integer id) {
-        return TODO;
+        Book book = Book.findById(id);
+        if(book == null) {
+            return notFound("book not found");
+        }
+
+        return ok(show.render(book));
+    }
+
+    public Result destroy(Integer id) {
+        Book book = Book.findById(id);
+        if(book == null) {
+            return notFound("book not found");
+        }
+
+        Book.remove(book);
+
+        return redirect(routes.BooksController.index());
     }
 
 }
